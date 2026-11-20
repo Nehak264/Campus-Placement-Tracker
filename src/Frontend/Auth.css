@@ -1,0 +1,71 @@
+/* Resets that also cancel Vite's default styles */
+html, body, #root { margin: 0; padding: 0; width: 100%; max-width: none; min-width: 0; text-align: left; display: block; }
+*, *::before, *::after { box-sizing: border-box; }
+body { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; font-size: 16px; line-height: 1.5; color: #1b2152; }
+.ja-page button, .ja-page input { font: inherit; }
+.ja-page button { cursor: pointer; }
+.ja-page button:focus-visible, .ja-page input:focus-visible { outline: 3px solid #93b8ff; outline-offset: 1px; }
+
+.ja-page { min-height: 100vh; background: linear-gradient(120deg, #e6f1ff 0%, #f6eaf8 100%); }
+
+body { font-size: 17px; }
+.ja-nav, .ja-hero { max-width: 1320px; }
+.ja-card-wrap { flex: 0 0 430px; width: 430px; }
+
+/* top bar: logo on the left */
+.ja-nav { display: flex; align-items: center; justify-content: space-between; max-width: 1120px; margin: 0 auto; padding: 22px 32px; }
+.ja-logo { display: inline-flex; align-items: center; gap: 10px; }
+.ja-logo-mark { width: 38px; height: 38px; border-radius: 10px; background: #0d6efd; color: #fff; display: grid; place-items: center; font-weight: 700; }
+.ja-logo-text { font-size: 1.25rem; font-weight: 700; color: #1b2152; }
+.ja-out { padding: 8px 18px; border: 1px solid #0d6efd; background: #fff; color: #0d6efd; border-radius: 8px; font-weight: 600; }
+
+/* two sides: info on the left, login on the right */
+.ja-hero { max-width: 1120px; margin: 0 auto; padding: 8px 32px 56px; display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+.ja-left { flex: 1 1 0; min-width: 0; text-align: center; }
+.ja-quote { font-size: 1.3rem; max-width: 24ch; margin: 0 auto 18px; line-height: 1.4; }
+.ja-cap { display: block; margin: 0 auto 18px; max-width: 100%; height: auto; }
+.ja-left h1 { font-size: 1.6rem; line-height: 1.25; margin: 0 auto 8px; max-width: 24ch; }
+.ja-sub { margin: 0; color: #555b7e; }
+
+/* login card, like the reference: blue curved top, round avatar, tab at the bottom */
+.ja-card-wrap { flex: 0 0 380px; width: 380px; max-width: 100%; }
+.ja-card { position: relative; background: #fff; border-radius: 10px; overflow: hidden; padding: 0 32px 24px; box-shadow: 0 14px 40px rgba(27, 33, 82, .16); }
+.ja-card-top { margin: 0 -32px; height: 96px; background: #0d6efd; border-radius: 0 0 50% 50% / 0 0 100% 100%; }
+.ja-avatar { width: 76px; height: 76px; margin: -46px auto 0; border-radius: 50%; background: #fff; display: grid; place-items: center; font-size: 2rem; box-shadow: 0 4px 14px rgba(0, 0, 0, .18); position: relative; }
+.ja-role-full { text-align: center; margin: 8px 0 14px; font-size: .88rem; color: #555b7e; }
+
+.ja-roles { display: flex; gap: 8px; }
+.ja-pill { flex: 1; padding: 8px 0; border: 1px solid #cfd6ea; background: #fff; color: #1b2152; border-radius: 8px; font-weight: 600; font-size: .92rem; }
+.ja-pill.on { background: #0d6efd; border-color: #0d6efd; color: #fff; }
+
+.ja-field { display: block; margin-top: 16px; }
+.ja-field > span { display: block; font-size: .82rem; font-weight: 600; color: #333a66; margin-bottom: 5px; }
+.ja-field input { width: 100%; height: 44px; padding: 0 14px; border: 1px solid #cfd6ea; border-radius: 8px; background: #fff; color: #1b2152; }
+.ja-field input:focus { border-color: #0d6efd; }
+.ja-pw { position: relative; }
+.ja-pw input { padding-right: 62px; }
+.ja-show { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); border: 0; background: none; color: #0d6efd; font-size: .82rem; font-weight: 600; padding: 6px; }
+
+.ja-msg { min-height: 1.4em; margin: 12px 0 6px; font-size: .88rem; font-weight: 600; color: #b3261e; }
+.ja-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.ja-primary { height: 44px; padding: 0 30px; border: 0; border-radius: 8px; background: #0d6efd; color: #fff; font-weight: 600; }
+.ja-primary:hover { background: #0b5ed7; }
+.ja-switch { font-size: .86rem; color: #555b7e; }
+.ja-link { border: 0; background: none; padding: 0; color: #0d6efd; font-weight: 600; text-decoration: underline; }
+.ja-card-tab { width: 58%; margin: 0 auto; background: #0d6efd; color: #fff; text-align: center; font-size: .85rem; padding: 6px 0 8px; border-radius: 0 0 14px 14px; }
+
+/* dashboard */
+.ja-dash { max-width: 1120px; margin: 0 auto; padding: 16px 32px; }
+.ja-dash h2 { margin: 0; font-size: 1.8rem; }
+.ja-dash .ja-sub { margin: 4px 0 20px; }
+.ja-dash-body { background: #fff; border: 1px dashed #c9d3e6; border-radius: 12px; padding: 28px; color: #555b7e; }
+
+/* phones and small screens: stack info above the card */
+@media (max-width: 900px) {
+  .ja-hero { flex-direction: column; gap: 28px; padding: 8px 20px 40px; }
+  .ja-nav { padding: 18px 20px; }
+  .ja-card-wrap { flex: none; width: 100%; max-width: 400px; }
+}
+
+.ja-field select { width: 100%; height: 44px; padding: 0 12px; border: 1px solid #cfd6ea; border-radius: 8px; background: #fff; color: #1b2152; }
+.ja-field select:focus { border-color: #0d6efd; }

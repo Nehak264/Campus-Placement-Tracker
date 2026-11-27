@@ -1,28 +1,35 @@
 package com.placement.tracker.entity;
 
+import com.placement.tracker.enums.ApplicationStatus;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
-@Data
+@Table(name = "applications",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"student_id", "drive_id"}))
+@Getter
+@Setter
+@NoArgsConstructor
 public class Application {
-   @Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-   @ManyToOne
-    @JoinColumn(name="student_id")
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "student_id", nullable = false)
     private Student student;
 
-   @ManyToOne
-    @JoinColumn(name="company_id")
-    private Comapany company;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "drive_id", nullable = false)
+    private Drive drive;
 
-   private LocalDate appliedDate;
-   private String currentStatus;
+    private LocalDate appliedDate = LocalDate.now();
 
-   @OneToMany(mappedBy = "application", cascade = CascadeType.ALL)
-    private List<Round>rounds;
+    @Enumerated(EnumType.STRING)
+    private ApplicationStatus status = ApplicationStatus.APPLIED;
 }
